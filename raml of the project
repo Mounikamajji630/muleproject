@@ -1,0 +1,70 @@
+#%RAML 1.0
+title: customer-order-management-api
+
+types:
+  
+  customer: !include dataTypes/dataType.raml
+  orders: !include dataTypes/dataTypeorders.raml
+
+/customers:
+   get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/getResponse.json
+   post:
+     body:
+      application/json:
+        example: !include examples/postRequest.json
+     responses:
+          201: 
+            body:
+              application/json:
+                example: {
+                           "successfully created"
+                          }
+   /{id}:
+     uriParameters:
+      id:
+        type: string
+        required: true
+     get:
+      responses:
+        200:
+          body:
+           application/json:
+            example: !include examples/getResponseByID.json
+        400:
+          body:
+            application/json:
+              example: {
+                "customer not found"
+
+              }
+
+/orders:              
+  get:
+   responses:
+    200:
+     body:
+      application/json:
+        example: !include examples/getResponseOrders.json
+  post:
+    body:
+      application/json:
+        example: !include examples/postRequestOrders.json
+    responses:
+      201:
+        body:
+         application/json:
+           example:
+              {
+                "message": "Order created successfully"
+              }
+  /{id}:
+    uriParameters:
+       id:
+        type: string
+        required: true
+    get:
