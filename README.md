@@ -7,4 +7,20 @@ It includes endpoints to manage customers, create orders, retrieve orders by ID,
 
 ## Base URI
 
+# API Overview
 
+### Customers
+
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| GET    | /customers | Retrieve all customers |
+| POST   | /customers | Create a new customer |
+| GET    | /customers/{customerId} | Retrieve customer details by ID |
+
+### Orders
+
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| GET    | /orders | Retrieve all orders |
+| POST   | /orders | Create a new order |
+| GET    | /orders/{orderId} | Retrieve order details by ID |
